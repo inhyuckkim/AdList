@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ad List</string>
+    <string name="minimum_supported_os">Minimum Supported OS</string>
+    <string name="downloaded">Downloaded</string>
 </resources>

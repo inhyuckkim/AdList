@@ -37,7 +37,8 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgThumbnail"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@id/imgThumbnail"
+                app:layout_constraintBottom_toBottomOf="@id/imgThumbnail">
 
                 <TextView
                     android:id="@+id/txtTitle"
@@ -84,16 +85,69 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutApkDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imgThumbnail"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:divider="@drawable/divider"
+                android:showDividers="middle"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:text="@string/minimum_supported_os"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        tools:text="Android 6.0"
+                        android:text="@{adItem.minOSVersion}"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:text="@string/downloaded"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        tools:text="5k+"
+                        android:textStyle="bold"
+                        android:text="@{adItem.numberOfDownloads}"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/txtContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="25sp"
-                android:background="@android:color/white"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/imgThumbnail"
+                app:layout_constraintTop_toBottomOf="@id/layoutApkDetail"
                 android:text="@{adItem.productDescription}"
                 tools:text="product description comes here."/>
 

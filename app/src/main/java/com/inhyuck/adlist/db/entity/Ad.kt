@@ -29,7 +29,7 @@ data class Ad (
     var impressionTrackingURL:String? = null,
 
     @field:Element(name = "minOSVersion", required = false)
-    var minOSVersion:String? = null,
+    var minOSVersion:String? = "Any Devices",
 
     @field:Element(name = "numberOfRatings")
     var numberOfRatings:String? = null,

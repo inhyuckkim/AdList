@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.inhyuck.adlist.R
 import com.inhyuck.adlist.databinding.FragmentAdBinding
 import com.inhyuck.adlist.db.MainDB
+import java.net.URL
+import java.util.concurrent.Executors
 
 class AdFragment : Fragment(){
 
@@ -39,8 +42,18 @@ class AdFragment : Fragment(){
         val adID = arguments?.getString("appId")
         adID?.let {
             binding.adItem = MainDB.getInstance(requireContext()).AdDao().getAd(it)
+            binding.adItem?.observe(viewLifecycleOwner, Observer { ad->
+                callImpression(ad.impressionTrackingURL)
+            })
         }
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private fun callImpression(strUrl:String?){
+        strUrl?.let {
+            Executors.newSingleThreadExecutor().execute {
+                URL(it).readText()
+            }
+        }
+    }
 }

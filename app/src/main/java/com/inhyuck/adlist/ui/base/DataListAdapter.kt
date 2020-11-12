@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import java.util.concurrent.Executors
 
+/**
+ * Generic list adapter passes DiffUtil callback, Copied class from Google Sample code
+ */
 abstract class DataListAdapter <T, V : ViewDataBinding>(
     diffCallback: DiffUtil.ItemCallback<T>
 ) : ListAdapter<T, DataViewHolder<V>>(

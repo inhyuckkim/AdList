@@ -26,7 +26,7 @@ class AdListViewModel (
 
     init {
         fetchUpdate()
-        adList = db.AdDao().loadAll()
+        adList = db.adDao().loadAll()
     }
 
     var foundError = MutableLiveData<String?>()
@@ -59,8 +59,8 @@ class AdListViewModel (
 
                         //reset ads
                         Executors.newSingleThreadExecutor().execute {
-                            db.AdDao().deleteAll()
-                            db.AdDao().insert(response.body()?.ads)
+                            db.adDao().deleteAll()
+                            db.adDao().insert(response.body()?.ads)
                         }
                     }
                 }

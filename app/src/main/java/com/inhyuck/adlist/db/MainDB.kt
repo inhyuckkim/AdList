@@ -9,7 +9,7 @@ import com.inhyuck.adlist.db.entity.Ad
 
 @Database(entities = [Ad::class], version = 1, exportSchema = false)
 abstract class MainDB: RoomDatabase() {
-    abstract fun AdDao(): AdDao
+    abstract fun adDao(): AdDao
 
     companion object {
         @Volatile private var INSTANCE: MainDB? = null

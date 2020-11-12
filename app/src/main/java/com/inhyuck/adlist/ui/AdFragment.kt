@@ -41,7 +41,7 @@ class AdFragment : Fragment(){
 
         val adID = arguments?.getString("appId")
         adID?.let {
-            binding.adItem = MainDB.getInstance(requireContext()).AdDao().getAd(it)
+            binding.adItem = MainDB.getInstance(requireContext()).adDao().getAd(it)
             binding.adItem?.observe(viewLifecycleOwner, Observer { ad->
                 callImpression(ad.impressionTrackingURL)
             })

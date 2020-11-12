@@ -18,7 +18,7 @@ class AdAdapter (
         }
 
         override fun areContentsTheSame(oldItem: Ad, newItem: Ad): Boolean {
-            return oldItem.productId == newItem.productId
+            return oldItem.numberOfDownloads == newItem.numberOfDownloads
         }
     }
 ) {
